@@ -6,7 +6,7 @@
  * @param  array $keys_change An array with keys to be changed and new keys
  * @return array
  */
-function array_change_keys($array, $keys_change)
+function array_keys_change($array, $keys_change)
 {
 	$values = array_values($array);
 
