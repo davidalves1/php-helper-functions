@@ -23,6 +23,24 @@ function array_keys_change($array, $keys_change)
 }
 
 /**
+ * Validate the input fields by args
+ * @param array $request
+ * @param array $args
+ * @return array
+ */
+function validateRequest(Array $request, Array $args) {
+    $response = $request;
+
+    array_walk_recursive($response, function(&$value, $key) use ($args) {
+        if (array_search($key, array_keys($args))) {
+            $value = filter_var($value, $args[$key]);
+        }
+    });
+
+    return $response;
+}
+
+/**
  * Change the date to a new format
  * @param  string $date
  * @param  string $original_format
