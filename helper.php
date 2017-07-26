@@ -25,15 +25,15 @@ function array_keys_change($array, $keys_change)
 /**
  * Validate the input fields by args
  * @param array $request
- * @param array $args
+ * @param array $rules
  * @return array
  */
-function validateRequest(Array $request, Array $args) {
+function validateRequest(Array $request, Array $rules) {
     $response = $request;
 
-    array_walk_recursive($response, function(&$value, $key) use ($args) {
-        if (array_search($key, array_keys($args))) {
-            $value = filter_var($value, $args[$key]);
+    array_walk_recursive($response, function(&$value, $key) use ($rules) {
+        if (array_search($key, array_keys($rules))) {
+            $value = filter_var($value, $rules[$key]);
         }
     });
 
