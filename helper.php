@@ -23,7 +23,7 @@ function array_keys_change($array, $keys_change)
 }
 
 /**
- * Validate the input fields by args
+ * Validate the input fields by rules
  * @param array $request
  * @param array $rules
  * @return array
